@@ -1,8 +1,11 @@
 
-public class TragedyStats implements StatCalculator{
+public class TragedyStats extends Play{
 
-	@Override
-	public Integer calculate(Integer audience) {
-		return 40000 + (audience > 30 ? 1000 * (audience - 30) : 0);
+	public float calculatePrice(int audience) {
+		return 400 + (audience > 30 ? 10 * (audience - 30) : 0);
+	}
+
+	public int calculateCredits(int audience) {
+		return Math.max(audience - 30, 0);
 	}
 }
