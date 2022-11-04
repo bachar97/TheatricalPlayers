@@ -38,21 +38,25 @@ public class Invoice {
 
   public String printText(HashMap<String, Play> plays) {
 
-    StringBuffer result = new StringBuffer(String.format("Invoice for for %s\n", this.customer.customerName));
+    calculateInvoice(plays);
+
+    StringBuffer result = new StringBuffer(String.format("Invoice for %s\n", this.customer.customerName));
 
     for (Performance perf : this.performances) {
       final Play play = plays.get(perf.playID);
       result.append (String.format("  %s: %s (%s seats)\n", play.name, frmt.format(play.calculatePrice(perf.audience)), perf.audience));
-
     }
+
     result.append (String.format("Total Amount: %s\n", frmt.format(this.totalPrice)));
     result.append (String.format("%s credits earned.\n", volumeCredits));
 
     if (this.fidelityDiscount > 0) {
       result.append (String.format("You earned a discount of %s due to your Fidelity Points!\n", frmt.format(this.fidelityDiscount)));
     }
+
     result.append (String.format("Your Fidelity Points Balance is %s", this.customer.fidelityBalance));
     return result.toString();
+
   }
 
   //TODO: ADD PRINT HTML METHOD
