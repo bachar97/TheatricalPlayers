@@ -12,37 +12,18 @@ public class StatementPrinterTests {
     void exampleStatement() {
 
         HashMap<String, Play> plays = new HashMap<>();
-        plays.put("hamlet",  new Play("Hamlet", "tragedy"));
-        plays.put("as-like",  new Play("As You Like It", "comedy"));
-        plays.put("othello",  new Play("Othello", "tragedy"));
-
-        Invoice invoice = new Invoice("BigCo", List.of(
+        plays.put("hamlet",  new TragedyInfo("Hamlet"));
+        plays.put("as-like",  new ComedyInfo("As You Like It"));
+        plays.put("othello",  new TragedyInfo("Othello"));
+        Invoice invoice = new Invoice(new Customer("1", "BigCo", 103), List.of(
                 new Performance("hamlet", 55),
                 new Performance("hamlet", 30),
                 new Performance("as-like", 20),
                 new Performance("as-like", 35),
                 new Performance("othello", 40)));
 
-        StatementPrinter statementPrinter = new StatementPrinter();
-        var result = statementPrinter.print(invoice, plays);
+        var result = invoice.printText(plays);
 
         verify(result);
-    }
-
-    @Test
-    void statementWithNewPlayTypes() {
-
-        HashMap<String, Play> plays = new HashMap<>();
-        plays.put("henry-v",  new Play("Henry V", "history"));
-        plays.put("as-like",  new Play("As You Like It", "pastoral"));
-
-        Invoice invoice = new Invoice("BigCo", List.of(
-                new Performance("henry-v", 53),
-                new Performance("as-like", 55)));
-
-        StatementPrinter statementPrinter = new StatementPrinter();
-        Assertions.assertThrows(Error.class, () -> {
-            statementPrinter.print(invoice, plays);
-        });
     }
 }

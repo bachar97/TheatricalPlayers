@@ -1,0 +1,7 @@
+Invoice for: BigCo
+  Hamlet: $650.00 (55 seats)
+  As You Like It: $580.00 (35 seats)
+  Othello: $500.00 (40 seats)
+Total Amount: $0.00
+0 credits earned.
+Your Fidelity Points Balance is 103

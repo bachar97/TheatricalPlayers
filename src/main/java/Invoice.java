@@ -6,7 +6,7 @@ public class Invoice {
   public Customer customer;
   public List<Performance> performances;
   private float totalPrice;
-  private int earnedCredits;
+  private int volumeCredits;
   private float fidelityDiscount;
 
   final NumberFormat frmt = NumberFormat.getCurrencyInstance(Locale.US);
@@ -17,17 +17,17 @@ public class Invoice {
   }
 
   private void calculateInvoice(HashMap<String, Play> plays) {
-    this.earnedCredits = 0;
+    this.volumeCredits = 0;
     this.totalPrice = 0;
     this.fidelityDiscount = 0;
 
     for (Performance perf : this.performances) {
       final Play play = plays.get(perf.playID);
       totalPrice += play.calculatePrice(perf.audience);
-      earnedCredits += play.calculateCredits(perf.audience);
+      volumeCredits += play.calculateCredits(perf.audience);
     }
 
-    this.customer.fidelityBalance += earnedCredits;
+    this.customer.fidelityBalance += volumeCredits;
 
     if (this.customer.fidelityBalance >= 150) {
       fidelityDiscount = 15;
@@ -36,23 +36,23 @@ public class Invoice {
     }
   }
 
-  private String printText(HashMap<String, Play> plays) {
+  public String printText(HashMap<String, Play> plays) {
 
-    String result = String.format("Invoice for: %s\n", this.customer.customerName);
+    StringBuffer result = new StringBuffer(String.format("Invoice for for %s\n", this.customer.customerName));
 
     for (Performance perf : this.performances) {
       final Play play = plays.get(perf.playID);
-      result += String.format("  %s: %s (%s seats)\n", play.name, frmt.format(play.calculatePrice(perf.audience)), perf.audience);
+      result.append (String.format("  %s: %s (%s seats)\n", play.name, frmt.format(play.calculatePrice(perf.audience)), perf.audience));
 
     }
-    result += String.format("Total Amount: %s\n", frmt.format(this.totalPrice));
-    result += String.format("%s credits earned.\n", earnedCredits);
+    result.append (String.format("Total Amount: %s\n", frmt.format(this.totalPrice)));
+    result.append (String.format("%s credits earned.\n", volumeCredits));
 
     if (this.fidelityDiscount > 0) {
-      result += String.format("You earned a discount of %s due to your Fidelity Points!\n", frmt.format(this.fidelityDiscount));
+      result.append (String.format("You earned a discount of %s due to your Fidelity Points!\n", frmt.format(this.fidelityDiscount)));
     }
-    result +=  String.format("Your Fidelity Points Balance is %s", this.customer.fidelityBalance);
-    return result;
+    result.append (String.format("Your Fidelity Points Balance is %s", this.customer.fidelityBalance));
+    return result.toString();
   }
 
   //TODO: ADD PRINT HTML METHOD
