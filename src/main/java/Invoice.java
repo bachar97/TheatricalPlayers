@@ -59,5 +59,34 @@ public class Invoice {
 
   }
 
-  //TODO: ADD PRINT HTML METHOD
-}
+  public String printHTML(HashMap<String, Play> plays) {
+
+    calculateInvoice(plays);
+
+    StringBuffer result = new StringBuffer(String.format("<!DOCTYPE html>"));
+    result.append(String.format("<html>"));
+    result.append(String.format("<head>"));
+    result.append(String.format("<style>"));
+    result.append(String.format("<p><b>Client: </b>%s</p>", this.customer.customerName));
+
+    for (Performance perf : this.performances) {
+      final Play play = plays.get(perf.playID);
+      result.append (String.format("<tr>\n" +
+              "<td>%s</td>\n" +
+              "<td>%s</td>\n" +
+              "<td>%s</td>\n" +
+              "</tr>\n" +
+              "<tr>", play.name, perf.audience, frmt.format(play.calculatePrice(perf.audience))));
+    }
+
+    result.append (String.format("Total Amount: %s\n", frmt.format(this.totalPrice)));
+    result.append (String.format("%s credits earned.\n", volumeCredits));
+
+    if (this.fidelityDiscount > 0) {
+      result.append (String.format("You earned a discount of %s due to your Fidelity Points!\n", frmt.format(this.fidelityDiscount)));
+    }
+
+    result.append (String.format("Your Fidelity Points Balance is %s", this.customer.fidelityBalance));
+    return result.toString();
+
+  }}

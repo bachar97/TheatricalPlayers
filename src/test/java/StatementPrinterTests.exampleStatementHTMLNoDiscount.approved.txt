@@ -52,7 +52,7 @@ caption{padding-top: 10px;caption-side: bottom;}
 <th colspan="2">Remaining Fidelity Points:</th>
 <td>4</td>
 </tr>
-<caption><i> Payement is required in under 30 days. Daily newsletters that you can't unsubscribe from will be e-mailed to you if you don't.</i></caption>
+<caption><i>Payement is required in under 30 days. Daily newsletters that you can't unsubscribe from will be e-mailed to you if you don't.</i></caption>
 </table>
 </body>
 </html>
