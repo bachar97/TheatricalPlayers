@@ -2,8 +2,8 @@
 <html>
 <head>
 <style>
-table, th, td {border: 1px solid black;width: 25%;text-align: center;}
-caption{padding-top: 10px;caption-side: bottom;}
+table, th, td {border: 1px solid black ; width: 500px ; text-align: center ; }
+caption{padding-top: 10px; caption-side: bottom;}
 </style>
 </head>
 <body>
@@ -27,13 +27,13 @@ caption{padding-top: 10px;caption-side: bottom;}
 </tr>
 <tr>
 <td>As You Like It</td>
-<td>35</td>
-<td>$580.00</td>
+<td>20</td>
+<td>$360.00</td>
 </tr>
 <tr>
 <td>As You Like It</td>
-<td>20</td>
-<td>$360.00</td>
+<td>35</td>
+<td>$580.00</td>
 </tr>
 <tr>
 <td>Othello</td>
@@ -42,21 +42,17 @@ caption{padding-top: 10px;caption-side: bottom;}
 </tr>
 <tr>
 <th colspan="2">Total Owed:</th>
-<td>$1,730.00</td>
+<td>$2,490.00</td>
 </tr>
 <tr>
 <th colspan="2">Fidelity Points Earned:</th>
 <td>51</td>
 </tr>
 <tr>
-<th colspan="2">Remaining Fidelity Points:</th>
-<td>4</td>
+<th colspan="2">New Fidelity Points:</th>
+<td>51</td>
 </tr>
-<tr>
-<th colspan="2">Fidelity Points Discount:</th>
-<td>$15.00</td>
-</tr>
-<caption><i>Payement is required in under 30 days. Daily newsletters that you can't unsubscribe from will be e-mailed to you if you don't.</i></caption>
+<caption><i>Payment is required in under 30 days. Daily newsletters that you can't unsubscribe from will be e-mailed to you if you don't.</i></caption>
 </table>
 </body>
 </html>

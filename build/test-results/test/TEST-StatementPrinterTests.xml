@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="StatementPrinterTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-11-04T19:23:17" hostname="LPBACHAR" time="0.285">
+<testsuite name="StatementPrinterTests" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-11-05T13:12:37" hostname="LPBACHAR" time="0.372">
   <properties/>
-  <testcase name="exampleStatement()" classname="StatementPrinterTests" time="0.242"/>
-  <testcase name="exampleStatementNoDiscount()" classname="StatementPrinterTests" time="0.042"/>
+  <testcase name="exampleStatementHTML()" classname="StatementPrinterTests" time="0.235"/>
+  <testcase name="exampleStatementNoDiscountHTML()" classname="StatementPrinterTests" time="0.047"/>
+  <testcase name="exampleStatement()" classname="StatementPrinterTests" time="0.051"/>
+  <testcase name="exampleStatementNoDiscount()" classname="StatementPrinterTests" time="0.037"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
